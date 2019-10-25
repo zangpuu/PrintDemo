@@ -26,4 +26,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    compileOnly 'com.alibaba:fastjson:1.2.35'
+    compileOnly 'com.google.zxing:core:3.3.0'
 }
