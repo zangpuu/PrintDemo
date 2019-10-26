@@ -1,9 +1,5 @@
 package me.zhangpu.demo.print.printer;
 
-/**
- * Created by lorin on 2018/6/27.
- */
-
 public class PrinterConts {
     //优化模式
     //默认

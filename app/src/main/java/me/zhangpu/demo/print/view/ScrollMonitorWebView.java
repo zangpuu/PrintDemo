@@ -4,10 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.webkit.WebView;
 
-/**
- * Created by lorin on 2018/11/16.
- */
-
 public class ScrollMonitorWebView extends WebView {
     private OnScrollChangeListener mOnScrollChangeListener;
 

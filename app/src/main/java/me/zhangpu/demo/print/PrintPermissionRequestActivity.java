@@ -9,11 +9,6 @@ import android.os.SystemClock;
 
 import me.zhangpu.demo.print.printer.PrintLog;
 
-/**
- * Created by virgil on 2017/2/17.
- * @author virgil
- */
-
 public class PrintPermissionRequestActivity extends Activity {
 
     @Override

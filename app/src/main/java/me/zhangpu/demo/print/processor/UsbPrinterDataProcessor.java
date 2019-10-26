@@ -3,10 +3,6 @@ package me.zhangpu.demo.print.processor;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by lorin on 2018/7/12.
- */
-
 public class UsbPrinterDataProcessor {
 
     public static List<byte[]> divideImageData(int singlePartLength, byte[] source) {

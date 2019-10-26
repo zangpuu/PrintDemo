@@ -3,10 +3,6 @@ package me.zhangpu.demo.print.printer.ipPrinter.utils;
 
 import me.zhangpu.demo.print.printer.PrinterConts;
 
-/**
- * Created by lorin on 2018/6/27.
- */
-
 public class IpPrinterConts extends PrinterConts {
 
     //优化方案集合

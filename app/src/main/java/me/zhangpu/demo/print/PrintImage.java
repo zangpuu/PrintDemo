@@ -9,7 +9,6 @@ import me.zhangpu.demo.print.base.esc.ESCPrinterCommand;
 
 /**
  * PrintImage,图片打印类,将Bigmap转换为可打印的流
- * Created by virgil on 16/7/4.
  */
 public class PrintImage {
     /**

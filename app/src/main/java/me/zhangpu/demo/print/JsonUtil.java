@@ -8,10 +8,6 @@ import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.Set;
 
-/**
- * JsonUtil
- * Created by virgil on 16/8/9.
- */
 public class JsonUtil {
     @SuppressWarnings("unchecked")
     public static <T> T getInfo(com.alibaba.fastjson.JSONObject ob, String key, Class<T> type) {

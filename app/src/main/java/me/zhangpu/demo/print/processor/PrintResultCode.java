@@ -1,9 +1,5 @@
 package me.zhangpu.demo.print.processor;
 
-/**
- * PrintResultCode
- * Created by virgil on 16/8/9.
- */
 public class PrintResultCode {
     /**
      * 打印成功

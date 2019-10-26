@@ -7,10 +7,6 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 
-/**
- * ImageProcess
- * Created by virgil on 16/7/5.
- */
 public class ImageProcess {
 
 

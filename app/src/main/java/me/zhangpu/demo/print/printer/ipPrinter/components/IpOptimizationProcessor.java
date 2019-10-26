@@ -15,11 +15,6 @@ import me.zhangpu.demo.print.printer.ipPrinter.utils.IpPrinterConts;
 import me.zhangpu.demo.print.processor.ByteProcessUtil;
 import me.zhangpu.demo.print.processor.PrintResultCode;
 
-/**
- * Created by lorin on 2018/7/2.
- * 网口优化处理类
- */
-
 public class IpOptimizationProcessor {
 
     //Gsrn命令，用来监控内容是否打完

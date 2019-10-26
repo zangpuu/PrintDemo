@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,7 @@ import me.zhangpu.demo.print.processor.PrintBillBuilder;
 import me.zhangpu.demo.print.processor.PrintDataItem;
 import me.zhangpu.demo.print.processor.PrintResult;
 import me.zhangpu.demo.print.processor.PrintResultCode;
+import me.zhangpu.demo.print.processor.PrintStringUtil;
 import me.zhangpu.demo.print.processor.PrinterManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -74,37 +76,37 @@ public class MainActivity extends AppCompatActivity {
                         initData(config);
 
 
-                        try {
-                            config.connect();
-//                            config.write("ESC @".getBytes("GBK"));
-//                            config.write("GS ! 2".getBytes("GBK"));
+//                        try {
+//                            config.connect();
+////                            config.write("ESC @".getBytes("GBK"));
+////                            config.write("GS ! 2".getBytes("GBK"));
+////
+////                            config.write("测试打印\n".getBytes("GBK"));
+////                            config.write("测试打印\n".getBytes("GBK"));
+////                            config.write("测试打印\n".getBytes("GBK"));
+////                            config.write("测试打印\n".getBytes("GBK"));
+////
+////                            config.write("GS V 42 0".getBytes("GBK"));
+////                            config.write("ESC @".getBytes("GBK"));
 //
-//                            config.write("测试打印\n".getBytes("GBK"));
-//                            config.write("测试打印\n".getBytes("GBK"));
-//                            config.write("测试打印\n".getBytes("GBK"));
-//                            config.write("测试打印\n".getBytes("GBK"));
+//                            //config.write("皆さん、こんにちは、このプリンターは調整しにくいですね。\n\n\n\n\n".getBytes("utf-8"));
+////                            config.write(new byte[]{0x4E, 0x00});
+//                            config.write("逢葵茜\n\n\n\n\n".getBytes("shift-jis"));
+//                            config.write("しにくいですね\n\n\n\n\n".getBytes("JIS"));
 //
-//                            config.write("GS V 42 0".getBytes("GBK"));
-//                            config.write("ESC @".getBytes("GBK"));
-
-                            //config.write("皆さん、こんにちは、このプリンターは調整しにくいですね。\n\n\n\n\n".getBytes("utf-8"));
-//                            config.write(new byte[]{0x4E, 0x00});
-                            config.write("逢葵茜\n\n\n\n\n".getBytes("shift-jis"));
-                            config.write("しにくいですね\n\n\n\n\n".getBytes("JIS"));
-
-
-
-                            config.closeConnect();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-//                        PrinterManager printer1 = new PrinterManager(config, false);
-//                        printer1.setData(getPrintData());
 //
-//                        //printer1.setData(templetProcessor.buildCommand(config).billPrint.data);-
 //
-//                        analazyPrintResult(printer1.start(""));
+//                            config.closeConnect();
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+
+                        PrinterManager printer1 = new PrinterManager(config, false);
+                        printer1.setData(getPrintData());
+
+                        //printer1.setData(templetProcessor.buildCommand(config).billPrint.data);-
+
+                        analazyPrintResult(printer1.start(""));
 
                     }
                 }).start();
@@ -195,102 +197,103 @@ public class MainActivity extends AppCompatActivity {
         billPrint = new PrintBillBuilder(config);
 //
 //        billPrint.addLogo(BitmapFactory.decodeResource(getResources(), R.drawable.test));
-////        billPrint.addLogo(BitmapFactory.decodeResource(getResources(), R.mipmap.icon));
-//
-//        billPrint.addTitle(ob.optJSONObject("Shop").optString("fsShopName"));
-//        billPrint.addBlankLine();
-//        billPrint.addTitle("结账单");
-////        billPrint.addBlankLine();
-//        JSONObject sell = ob.optJSONObject("Sell");
-////                billPrint.addOrderNoAndBillNo(sell);
-//        String orderID = JsonUtil.getInfo(sell, "fssellno", String.class);
-//        orderID = orderID.substring(orderID.length() - 4, orderID.length());
-//        String orderStr = "单号:" + orderID;
-//        String mealNO = JsonUtil.getInfo(sell, "fsMealNumber", String.class);
-//        int mealNoInt = StringUtil.toInt(mealNO, -1);
-//        String mealNoStr = "牌号:" + mealNO;
-//        try {
+        billPrint.addLogo(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
 
-//            if (mealNoInt > -1) {
-////                billPrint.addText(orderStr , 1, PrintDataItem.ALIGN_LEFT, 0);
-//
-//                billPrint.addText(PrintStringUtil.padRight(orderStr, (int) (billPrint.charSize - PrintStringUtil.getStringLength(mealNoStr, billPrint.gbkSize, 2)), billPrint.gbkSize), 1, PrintDataItem.ALIGN_LEFT, 0, 1);
-//                billPrint.addText(mealNoStr + "\n", 2, PrintDataItem.ALIGN_RIGHT, 0, 1);
-//            } else {
-//                billPrint.addText(orderStr + "\n", 2, PrintDataItem.ALIGN_LEFT, 1, 0);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        billPrint.addTitle(ob.optJSONObject("Shop").optString("fsShopName"));
+        billPrint.addBlankLine();
+        billPrint.addTitle("结账单");
 //        billPrint.addBlankLine();
-//        String orderType = "堂食";
-//        String fillKind = JsonUtil.getInfo(sell, "fiBillKind", String.class);
-//        switch (fillKind) {
-//            case "8":
-//                orderType = "打包";
-//                break;
-//            case "9":
-//                orderType = "外卖";
-//                break;
-//        }
-//        billPrint.addLeftWithRight("日期:" + JsonUtil.getInfo(sell, "fsselldate", String.class), "类型:" + orderType);
-//        billPrint.addBlankLine();
-//        billPrint.addLeftWithRight("收银:" + JsonUtil.getInfo(sell, "cashiername", String.class), "结账时间:" + JsonUtil.getInfo(sell, "fscheckendtime", String.class));
-//        billPrint.addHortionalLine();
-////        billPrint.addCenterTextPaddingWithDash("居中");
-//        billPrint.addOrderItem(
-//                GlobalCache.getContext().getString(R.string.item),
-//                "金额",
-////                "",
-//                GlobalCache.getContext().getResources().getString(R.string.qty),
-//                GlobalCache.getContext().getResources().getString(R.string.total), 2);// ("Item Name", "QTY");
-//        billPrint.addHortionalLine();
+        JSONObject sell = ob.optJSONObject("Sell");
+//                billPrint.addOrderNoAndBillNo(sell);
+        String orderID = JsonUtil.getInfo(sell, "fssellno", String.class);
+        orderID = orderID.substring(orderID.length() - 4, orderID.length());
+        String orderStr = "单号:" + orderID;
+        String mealNO = JsonUtil.getInfo(sell, "fsMealNumber", String.class);
+//        int mealNoInt = StringUtil.toInt(mealNO, -1);
+        int mealNoInt = 111;
+        String mealNoStr = "牌号:" + mealNO;
+        try {
+
+            if (mealNoInt > -1) {
+//                billPrint.addText(orderStr , 1, PrintDataItem.ALIGN_LEFT, 0);
+
+                billPrint.addText(PrintStringUtil.padRight(orderStr, (int) (billPrint.charSize - PrintStringUtil.getStringLength(mealNoStr, billPrint.gbkSize, 2)), billPrint.gbkSize), 1, PrintDataItem.ALIGN_LEFT, 0, 1);
+                billPrint.addText(mealNoStr + "\n", 2, PrintDataItem.ALIGN_RIGHT, 0, 1);
+            } else {
+                billPrint.addText(orderStr + "\n", 2, PrintDataItem.ALIGN_LEFT, 1, 0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        billPrint.addBlankLine();
+        String orderType = "堂食";
+        String fillKind = JsonUtil.getInfo(sell, "fiBillKind", String.class);
+        switch (fillKind) {
+            case "8":
+                orderType = "打包";
+                break;
+            case "9":
+                orderType = "外卖";
+                break;
+        }
+        billPrint.addLeftWithRight("日期:" + JsonUtil.getInfo(sell, "fsselldate", String.class), "类型:" + orderType);
+        billPrint.addBlankLine();
+        billPrint.addLeftWithRight("收银:" + JsonUtil.getInfo(sell, "cashiername", String.class), "结账时间:" + JsonUtil.getInfo(sell, "fscheckendtime", String.class));
+        billPrint.addHortionalLine();
+//        billPrint.addCenterTextPaddingWithDash("居中");
+        billPrint.addOrderItem(
+                "菜名",
+                "金额",
+//                "",
+                "数量",
+                "总计", 2);// ("Item Name", "QTY");
+        billPrint.addHortionalLine();
 
         JSONArray list = ob.optJSONArray("sellOrder");
-//        for (int i = 0; i < list.length(); i++) {
-//            JSONObject item = list.optJSONObject(i);
-//            billPrint.addOrderItem(item.optString("fsitemname"),
-//                    item.optString("fdsettleprice"),
-////                    "",
-//                    item.optString("qty") + "/" + item.optString("fsOrderUint"),
-//                    item.optString("fdsubtotal"),
-//                    2);
-//            JSONArray slit = JsonUtil.getInfo(item, "SLIT", JSONArray.class);
-//            if (slit != null && slit.length() > 0) {
-//                for (int m = 0; m < slit.length(); m++) {
-//                    JSONObject itemS = slit.optJSONObject(m);
-//                    billPrint.addOrderModifier("-" + JsonUtil.getInfo(itemS, "fsitemname", String.class) + "*" + JsonUtil.getInfo(itemS, "qty", String.class), 1);
-//                }
-//            }
-//            billPrint.addBlankLine(1);
-//        }
-//        billPrint.addHortionalLine();
-//        JSONObject sub = ob.optJSONObject("Sub");
-//        billPrint.addSub("消费合计", sub.optString("qty"), "￥" + sub.optString("total"));
-//        billPrint.addSub("折扣", "", "￥" + sell.optString("fddiscountamt"));
-//        billPrint.addSub("应收", "", sell.optString("fdexpamt"));
-//        billPrint.addHortionaDoublelLine();
-//
-//        JSONArray payList = JsonUtil.getInfo(ob, "SellReceive", JSONArray.class);
-//        for (int i = 0; i < payList.length(); i++) {
-//            JSONObject item = payList.optJSONObject(i);
-//            BigDecimal payAmount = JsonUtil.getInfo(item, "fdpaymoney", BigDecimal.class);
-//            billPrint.addRedText(JsonUtil.getInfo(item, "paymentname", String.class) + ":￥" + payAmount + "\r\n");
-//        }
-//        billPrint.addHortionaDoublelLine();
-//        billPrint.addBlankLine();
-//        billPrint.addQRcode("http://qr.mwee.9now.net/qr/9rg70996ylu935", PrintDataItem.ALIGN_RIGHT);
-//
-//        billPrint.addBarCod("122*1134302*0003", PrintDataItem.ALIGN_CENTRE);
-//        billPrint.addBarCod("122*1134302*105537", PrintDataItem.ALIGN_CENTRE);
-//        billPrint.addCut();
+        for (int i = 0; i < list.length(); i++) {
+            JSONObject item = list.optJSONObject(i);
+            billPrint.addOrderItem(item.optString("fsitemname"),
+                    item.optString("fdsettleprice"),
+//                    "",
+                    item.optString("qty") + "/" + item.optString("fsOrderUint"),
+                    item.optString("fdsubtotal"),
+                    2);
+            JSONArray slit = JsonUtil.getInfo(item, "SLIT", JSONArray.class);
+            if (slit != null && slit.length() > 0) {
+                for (int m = 0; m < slit.length(); m++) {
+                    JSONObject itemS = slit.optJSONObject(m);
+                    billPrint.addOrderModifier("-" + JsonUtil.getInfo(itemS, "fsitemname", String.class) + "*" + JsonUtil.getInfo(itemS, "qty", String.class), 1);
+                }
+            }
+            billPrint.addBlankLine(1);
+        }
+        billPrint.addHortionalLine();
+        JSONObject sub = ob.optJSONObject("Sub");
+        billPrint.addSub("消费合计", sub.optString("qty"), "￥" + sub.optString("total"));
+        billPrint.addSub("折扣", "", "￥" + sell.optString("fddiscountamt"));
+        billPrint.addSub("应收", "", sell.optString("fdexpamt"));
+        billPrint.addHortionaDoublelLine();
 
-//        billPrint.addBeep();
+        JSONArray payList = JsonUtil.getInfo(ob, "SellReceive", JSONArray.class);
+        for (int i = 0; i < payList.length(); i++) {
+            JSONObject item = payList.optJSONObject(i);
+            BigDecimal payAmount = JsonUtil.getInfo(item, "fdpaymoney", BigDecimal.class);
+            billPrint.addRedText(JsonUtil.getInfo(item, "paymentname", String.class) + ":￥" + payAmount + "\r\n");
+        }
+        billPrint.addHortionaDoublelLine();
+        billPrint.addBlankLine();
+        billPrint.addQRcode("http://qr.mwee.9now.net/qr/9rg70996ylu935", PrintDataItem.ALIGN_RIGHT);
+
+        billPrint.addBarCod("122*1134302*0003", PrintDataItem.ALIGN_CENTRE);
+        billPrint.addBarCod("122*1134302*105537", PrintDataItem.ALIGN_CENTRE);
+        billPrint.addCut();
+
+        billPrint.addBeep();
         billPrint.addBlankLine(5);
         billPrint.addTitle("制作单");
-//        billPrint.addBarCod("122*1134302*0003", PrintDataItem.ALIGN_CENTRE);
-//        billPrint.addBarCod("122*1134302*105537", PrintDataItem.ALIGN_CENTRE);
-//        billPrint.addQRcode("1224324353addFoodBoxBarcode",PrintDataItem.ALIGN_CENTRE);
+        billPrint.addBarCod("122*1134302*0003", PrintDataItem.ALIGN_CENTRE);
+        billPrint.addBarCod("122*1134302*105537", PrintDataItem.ALIGN_CENTRE);
+        billPrint.addQRcode("1224324353addFoodBoxBarcode",PrintDataItem.ALIGN_CENTRE);
         billPrint.addHortionaDoublelLine();
         for (int i = 0; i < list.length(); i++) {
             JSONObject item = list.optJSONObject(i);

@@ -9,11 +9,6 @@ import me.zhangpu.demo.print.printer.PrinterConts;
 import me.zhangpu.demo.print.printer.ipPrinter.model.ReceiptCmdModel;
 import me.zhangpu.demo.print.printer.ipPrinter.utils.IpPrinterConts;
 
-/**
- * Created by mw on 18/3/8.
- * byte处理工具类
- */
-
 public class ByteProcessUtil {
 
     public static final int INT_LEGAL_MULTIPLES = 4;//内容字符串

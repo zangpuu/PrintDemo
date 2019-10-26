@@ -14,10 +14,6 @@ import me.zhangpu.demo.print.printer.ipPrinter.components.IpOptimizationProcesso
 import me.zhangpu.demo.print.printer.ipPrinter.model.OptimizationTaskModel;
 import me.zhangpu.demo.print.printer.ipPrinter.utils.IpPrinterConts;
 
-/**
- * IpPrinterConfig
- * Created by chris on 16/5/24.
- */
 public class IpPrinterConfig extends PrinterConfig {
 
     public String ip = "";

@@ -13,11 +13,6 @@ import me.zhangpu.demo.print.processor.command.CommandEsc;
 import me.zhangpu.demo.print.processor.command.ICommand;
 
 
-/**
- * 打印指令输出管理类
- *
- * @author virgil
- */
 public class PrinterManager {
     private final static String TAG = "PrintSDK";
     private final PrinterConfig config;

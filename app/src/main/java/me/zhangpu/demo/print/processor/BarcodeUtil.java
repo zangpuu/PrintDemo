@@ -9,11 +9,6 @@ import com.google.zxing.common.BitMatrix;
 import me.zhangpu.demo.print.printer.PrintLog;
 
 
-/**
- * @time 2015-11-17 下午3:46:18
- * @tags
- * @todo TODO
- */
 public class BarcodeUtil {
 
     private static final String TAG = "BarcodeUtil";
