@@ -1,9 +1,5 @@
 package me.zhangpu.demo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,15 +7,13 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +24,6 @@ import me.zhangpu.demo.print.base.PrinterConfig;
 import me.zhangpu.demo.print.encoding.Lang;
 import me.zhangpu.demo.print.printer.PrintLog;
 import me.zhangpu.demo.print.printer.ipPrinter.IpPrinterConfig;
-import me.zhangpu.demo.print.printer.ipPrinter.utils.IpPrinterConts;
 import me.zhangpu.demo.print.processor.PrintBillBuilder;
 import me.zhangpu.demo.print.processor.PrintDataItem;
 import me.zhangpu.demo.print.processor.PrintResult;
@@ -59,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 EditText editTextPrintIP = findViewById(R.id.ip);
                 final String printIP = editTextPrintIP.getText().toString();
-                if(TextUtils.isEmpty(printIP)) {
+                if (TextUtils.isEmpty(printIP)) {
                     PrintLog.e(TAG, "Please input IP");
                 }
 
@@ -114,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
 
     }
@@ -293,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
         billPrint.addTitle("制作单");
         billPrint.addBarCod("122*1134302*0003", PrintDataItem.ALIGN_CENTRE);
         billPrint.addBarCod("122*1134302*105537", PrintDataItem.ALIGN_CENTRE);
-        billPrint.addQRcode("1224324353addFoodBoxBarcode",PrintDataItem.ALIGN_CENTRE);
+        billPrint.addQRcode("1224324353addFoodBoxBarcode", PrintDataItem.ALIGN_CENTRE);
         billPrint.addHortionaDoublelLine();
         for (int i = 0; i < list.length(); i++) {
             JSONObject item = list.optJSONObject(i);
