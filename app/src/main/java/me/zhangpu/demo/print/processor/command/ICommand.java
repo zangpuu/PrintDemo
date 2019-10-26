@@ -12,7 +12,6 @@ import me.zhangpu.demo.print.base.PrinterConfig;
 import me.zhangpu.demo.print.encoding.Lang;
 
 /**
- * Created by virgil on 2018/1/25.
  */
 
 public abstract class ICommand {

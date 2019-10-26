@@ -18,7 +18,6 @@ import me.zhangpu.demo.print.processor.PrintResultCode;
 /**
  * 标准Epson指令集
  *
- * @author virgil
  */
 public class CommandEsc extends ICommand {
 

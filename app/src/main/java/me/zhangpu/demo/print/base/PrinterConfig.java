@@ -1,8 +1,6 @@
 package me.zhangpu.demo.print.base;
 
 
-import android.text.TextUtils;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -13,7 +11,6 @@ import me.zhangpu.demo.print.encoding.Lang;
 import me.zhangpu.demo.print.printer.PrintLog;
 import me.zhangpu.demo.print.processor.PrintBuilder;
 import me.zhangpu.demo.print.processor.command.CommandEsc;
-import me.zhangpu.demo.print.processor.command.CommandStar;
 import me.zhangpu.demo.print.processor.command.ICommand;
 
 public abstract class PrinterConfig implements Serializable {
@@ -224,12 +221,8 @@ public abstract class PrinterConfig implements Serializable {
      * @return
      */
     protected ICommand generateCommand() {
-        if (starPrinter()) {
-            return new CommandStar();
-        } else {
             CommandEsc commandEsc = new CommandEsc();
             return commandEsc;
-        }
     }
 
     public boolean getSamSungCutCommand() {
