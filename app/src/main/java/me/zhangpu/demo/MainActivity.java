@@ -84,7 +84,11 @@ public class MainActivity extends AppCompatActivity {
 //
 //                            //config.write("皆さん、こんにちは、このプリンターは調整しにくいですね。\n\n\n\n\n".getBytes("utf-8"));
 ////                            config.write(new byte[]{0x4E, 0x00});
-//                            config.write("逢葵茜\n\n\n\n\n".getBytes("shift-jis"));
+//                            config.write("1234567890\n\n\n\n\n".getBytes("Shift-JIS"));
+//                            config.write("abcdefghiGQLMNOPQ\n\n\n\n\n".getBytes("SJIS"));
+//                            config.write("我是中文\n\n\n\n\n".getBytes("GB2312"));
+//                            config.write("しにくいですね\n\n\n\n\n".getBytes("Shift-JIS"));
+//                            config.write("しにくいですね\n\n\n\n\n".getBytes("SJIS"));
 //                            config.write("しにくいですね\n\n\n\n\n".getBytes("JIS"));
 //
 //
